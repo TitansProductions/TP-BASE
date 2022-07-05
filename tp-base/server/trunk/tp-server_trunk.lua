@@ -338,7 +338,7 @@ ESX.RegisterServerCallback("tp-base:getTrunkInventory", function(source, cb, pla
 
         if #trunkResults == 0 then
 
-            print("does not exist, creating..")
+            --If trunk data does not exist, we creating..
     
             MySQL.Async.execute('INSERT INTO base_trunk_inventories (plate, owned) VALUES (@plate, @owned)',
             {
