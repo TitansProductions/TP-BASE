@@ -22,7 +22,7 @@ the discord url when clicking discord icon or changing the clicking sound volume
 - Make sure you have imported users.sql file and then in order to add an avatar image, the url must ending with the image type such as .png, .jpg 
 like the default url example which is below:
 
-https://i.imgur.com/Li1OpZW.jpg <- (.jpg).
+https://i.imgur.com/xxxxxx.jpg <- (.jpg).
 
 # Where do i change game commands & game keybinds text area?
 
