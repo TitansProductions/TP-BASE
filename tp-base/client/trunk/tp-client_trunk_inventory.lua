@@ -183,7 +183,6 @@ RegisterNUICallback("PutIntoTrunk", function(data, cb)
 
             -- Put Into Trunk From Player Inventory.
             TriggerServerEvent("tp-base:PutIntoTrunk", data.plate, trunkWeight, data.item.type, data.item.name, count, data.item.count)
-            --TriggerServerEvent("tp-advancedbags:tradeFromInventory", trunkWeight, currentBagCoords, data.item.type, data.item.name, count, data.item.count)
 
             Wait(250)
             ESX.TriggerServerCallback("tp-base:getTrunkInventory", function(trunkInventoryData)
