@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'Nosmakos'
 description 'Titans Productions Base UI (ESX)'
-version '1.1.0'
+version '1.1.1'
 
 ui_page 'html/index.html'
 
