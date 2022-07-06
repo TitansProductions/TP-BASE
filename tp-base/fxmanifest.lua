@@ -33,7 +33,8 @@ files {
     'html/js/locales/locales-gr.js',
     'html/js/locales/locales-de.js',
     'html/js/locales/locales-ru.js',
-
+    'html/js/locales/locales-zh.js',
+	
     'html/js/script.js',
 
 	'html/css/*.css',
