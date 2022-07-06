@@ -27,7 +27,7 @@ Screenshots:
 
 What does this Base UI provides me?
 
-1. Inventory (Using Shortcuts).
+1. Inventory (Using Shortcuts and Tooltip Hover Text for items or weapons displaying any kind of description / or not).
 
 2. Personal Player Profile - Displaying Steam Name, Username, Character Statistics such as cash, bank account and black money, including a custom avatar image.
 
