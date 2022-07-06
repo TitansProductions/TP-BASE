@@ -43,7 +43,10 @@ What does this Base UI provides me?
 
 8. We also provide you a very decent and workable trunk system for storing items, weapons, money and blackmoney, including a trunk weight system.
 
-9. Clicking custom sound when interacting with the Base UI Environment.
+9. Supporting second inventories in order to be used for personal preferences, such as opening other players inventory for stealing / robbing (esx_thief).
+
+10. Clicking custom sound when interacting with the Base UI Environment.
+
 
 Supported Locales:
 
