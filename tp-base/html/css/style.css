@@ -1854,6 +1854,43 @@ input[type=number] {
 	user-select: none;
 }
 
+*[data-tooltip] {
+    position: absolute;
+}
+
+*[data-tooltip]::after {
+    content: attr(data-tooltip);
+
+    position: absolute;
+
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
+	color: snow;
+
+	display: block;
+	text-align: left;
+    font-size: 0.5vw;
+
+    width: 10.4vw;
+	height: fit-content;
+
+    pointer-events: none;
+    opacity: 0;
+    -webkit-transition: opacity .15s ease-in-out;
+    -moz-transition: opacity .15s ease-in-out;
+    -ms-transition: opacity .15s ease-in-out;
+    -o-transition: opacity .15s ease-in-out;
+    transition: opacity .15s ease-in-out;
+
+    background: #000214f1;
+    padding: 2px 2px;
+    border: 1px solid rgb(156, 156, 156);
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.4);
+}
+
+*[data-tooltip]:hover::after {
+    opacity: 1;
+}
+
 /*Filter styles*/
 .saturate { filter: saturate(3); }
 .grayscale { filter: grayscale(100%); }
@@ -1869,9 +1906,3 @@ input[type=number] {
 	font-family: "Prototype";
 	src: url("../font/Prototype.ttf");
   }
-
-@media only screen and (max-width: 1060px) {
-	.dialog {
-		left: 0%;
-	}
-}
