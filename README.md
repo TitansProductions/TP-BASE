@@ -55,3 +55,7 @@ Supported Locales:
     zh (Traditional Chinese)
 
 Those are the supported locales which you can use for your server. In order to select a language, the language can be changed where config.js file is located.
+
+Join our discord server:
+
+https://discord.com/invite/7ZGkER9WVS
