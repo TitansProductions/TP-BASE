@@ -265,6 +265,7 @@ function loadPlayerInventory(targetSource, inventoryType)
                     label = "Cash",
                     name = "cash",
                     type = "item_money",
+		    description = "none",
                     count = money,
                     usable = false,
                     rare = false,
@@ -281,6 +282,7 @@ function loadPlayerInventory(targetSource, inventoryType)
                     label = "Black Money",
                     name = "black_money",
                     type = "item_black_money",
+		    description = "none",
                     count = black_money,
                     usable = false,
                     rare = false,
@@ -297,6 +299,14 @@ function loadPlayerInventory(targetSource, inventoryType)
                         inventory[key] = nil
                     else
                         inventory[key].type = "item_standard"
+						
+			if Config.ItemDescriptions[inventory[key].name] then
+                            local description = Config.ItemDescriptions[inventory[key].name]
+                            inventory[key].description = description
+                        else
+                            inventory[key].description = "none"
+                        end
+						
                         table.insert(items, inventory[key])
                     end
                 end
@@ -315,6 +325,12 @@ function loadPlayerInventory(targetSource, inventoryType)
                         if Config.WeaponLabelNames[weapons[key].name] then
                             weaponLabel = Config.WeaponLabelNames[weapons[key].name]
                         end
+						
+			local weaponDescription = "none"
+
+                        if Config.ItemDescriptions[weapons[key].name] then
+                            weaponDescription = Config.ItemDescriptions[weapons[key].name]
+                        end
 
                         table.insert(
                             items,
@@ -324,6 +340,7 @@ function loadPlayerInventory(targetSource, inventoryType)
                                 limit = -1,
                                 type = "item_weapon",
                                 name = weapons[key].name,
+				description = weaponDescription,
                                 usable = false,
                                 rare = false,
                                 canRemove = true
