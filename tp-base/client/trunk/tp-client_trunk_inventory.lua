@@ -124,7 +124,7 @@ function loadOtherInventory(_data, plate)
 
     if round(trunkWeight, 4) == 99.9999 then trunkWeight = 100 end
 
-    SendNUIMessage({action = "setTrunkInformation", plate = plate, weight = round(trunkWeight, 2), maxWeight = maxTrunkWeight})
+    SendNUIMessage({action = "setSecondInventoryInformation", plate = plate, weight = round(trunkWeight, 2), maxWeight = maxTrunkWeight})
 
     SendNUIMessage(
         {
