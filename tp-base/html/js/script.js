@@ -563,7 +563,7 @@ $(function() {
 			$('.secondItem').draggable("disable");
 			$('.secondPlayerItem').draggable("disable");
 			
-		}else if (event.data.action == "setTrunkInformation") {
+		}else if (event.data.action == "setSecondInventoryInformation") {
 			currentPlate = event.data.plate;
 
 			document.getElementById("secondInventoryHeader").innerHTML = event.data.plate + " | " + Locales.trunkCurrentWeight + event.data.weight + " / " + event.data.maxWeight + " (" + Math.floor((event.data.weight/event.data.maxWeight * 100)) + "%)";
