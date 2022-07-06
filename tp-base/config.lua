@@ -73,6 +73,10 @@ Config.WeaponLabelNames = {
 
 }
 
+Config.ItemDescriptions = {
+    ['medikit'] = "A first aid kit is a box, bag or pack that holds supplies used to treat minor injuries including cuts, scrapes, burns, bruises, and sprains. More elaborate first aid kits can also include survival supplies, life-saving emergency supplies or convenience items like bug sting wipes or cold & flu medicines.",
+}
+
 -- ###########################################################################################
 -- Trunk Inventory
 -- ###########################################################################################
