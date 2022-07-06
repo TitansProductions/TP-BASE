@@ -6,7 +6,7 @@ Requirements:
 
     ESX
 
-Supported Extended Scripts :
+Supported Notification Extended Scripts :
 
     mythic_notify
     okoknotify
