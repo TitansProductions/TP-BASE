@@ -55,9 +55,13 @@ loadScript("js/locales/locales-" + Config.Locale + ".js").then( data  => {
 function closeInventory() {
     $.post("http://tp-base/closeNUI", JSON.stringify({}));
 	$('#playerInventory').html('');
+	$('#selectedPlayerInventory').html('');
 
 	$('#secondPlayerInventory').html('');
 	$('#secondInventory').html('');
+
+	$("#playerAchievements").html("");
+    $("#otherPlayerAchievements").html("");
 
 	$('#userslist').html('');
 	$('#ticket').html('');
@@ -203,6 +207,9 @@ $(function() {
 
 			canClickButton = true;
 
+		}else if (event.data.action == "changePlayerAvatar"){
+			document.getElementById("avatar_image").src = event.data.avatar_url;
+			document.getElementById("avatar_url_input").value = event.data.avatar_url;
 		}else if (event.data.action == "addPlayerInformation") {
 
 			document.getElementById("avatar_image").src = event.data.avatar_url;
@@ -226,17 +233,17 @@ $(function() {
 
 		}else if (event.data.action == "addSelectedPlayerInformation") {
 
-			document.getElementById("selected_user_avatar_image").src = event.data.avatar_url;
+			document.getElementById("selected_avatar_image").src = event.data.avatar_url;
 
-			document.getElementById("selected_user_header_character_stats_money").innerHTML = "💲" + event.data.money;
-			document.getElementById("selected_user_header_character_stats_bank").innerHTML = " 🏦 " + event.data.bank;
-			document.getElementById("selected_user_header_character_stats_blackmoney").innerHTML = " 💰 " + event.data.black_money;
+			document.getElementById("other_header_character_stats_money").innerHTML = "💲" + event.data.money;
+			document.getElementById("other_header_character_stats_bank").innerHTML = " 🏦 " + event.data.bank;
+			document.getElementById("other_header_character_stats_blackmoney").innerHTML = " 💰 " + event.data.black_money;
 
 			selectedSource = event.data.source;
 
 			// Inserting Profile Locales.
 
-			document.getElementById("header_other_avatar").innerHTML = Locales.profileTitle + " - " + event.data.steamName + " (" + event.data.name + ")";
+			document.getElementById("other_header_avatar").innerHTML = Locales.profileTitle + " - " + event.data.steamName + " (" + event.data.name + ")";
 
 			document.getElementById("other_header_character_stats").innerHTML = Locales.profileCharacterStatistics;
 			document.getElementById("other_header_character_stats_description").innerHTML = Locales.profileStatisticsOverview;
@@ -245,11 +252,13 @@ $(function() {
 			document.getElementById("other_header_character_stats_bank_title").innerHTML = Locales.profileBankAccount;
 			document.getElementById("other_header_character_stats_black_money_title").innerHTML = Locales.profileBlackMoney;
 
+			document.getElementById("other_header_character_refresh").innerHTML = Locales.profileRefresh;
+
 		}else if (event.data.action == "addSelectedPlayerInformationOnRefresh") {
 
-			document.getElementById("selected_user_header_character_stats_money").innerHTML = "💲" + event.data.money;
-			document.getElementById("selected_user_header_character_stats_bank").innerHTML = " 🏦 " + event.data.bank;
-			document.getElementById("selected_user_header_character_stats_blackmoney").innerHTML = " 💰 " + event.data.black_money;
+			document.getElementById("other_header_character_stats_money").innerHTML = "💲" + event.data.money;
+			document.getElementById("other_header_character_stats_bank").innerHTML = " 🏦 " + event.data.bank;
+			document.getElementById("other_header_character_stats_blackmoney").innerHTML = " 💰 " + event.data.black_money;
 
 
 		}else if (event.data.type == "enable_online_users") {
@@ -481,6 +490,14 @@ $(function() {
 		}else if (event.data.action == "clearTickets") {
 			$('#ticket').html('');
 
+		}else if (event.data.action == "addPlayerAchievements"){
+
+			if (event.data.otherSource == true){
+				playerAchievementsSetup(event.data.achievementsList, true);
+			}else{
+				playerAchievementsSetup(event.data.achievementsList, false);
+			}
+
 		}else if (event.data.action == "addReport") {
 			var prod_report = event.data.reports_det;
 
@@ -588,7 +605,7 @@ $(function() {
 			}
 
 		} else if (event.data.action == "setSecondPlayerInventoryItems"){
-			secondPlayerInventorySetup(event.data.itemList);
+			secondPlayerInventorySetup(event.data.itemList, "#secondPlayerInventory");
 
 			$('.secondPlayerItem').draggable({
 				helper: 'clone',
@@ -645,7 +662,7 @@ $(function() {
 
 			if (event.data.isTarget == true) {
 
-				otherInventorySetup(event.data.itemList);
+				secondPlayerInventorySetup(event.data.itemList, "#selectedPlayerInventory");
 
 			}else{
 
@@ -794,6 +811,14 @@ $(function() {
 
 	});
 
+	/* Cancelling enter on input where avatar url is required */
+	$("#enable_personal_iformation").on('keyup keypress', 'input', function(e) {
+		if(e.which == 13) {
+		  e.preventDefault();
+		  return false;
+		}
+	});
+
 	/* Creates a ticket with the selected category reason and description ~button*/
 	$("#enable_personal_iformation").on("click", "#avatar_url_set", function() {
 
@@ -805,7 +830,7 @@ $(function() {
 	});
 	
 	/* Refresh player data ~button*/
-	$("#enable_selected_user_personal_iformation").on("click", "#selected_user_header_character_refresh", function() {
+	$("#enable_selected_user_personal_iformation").on("click", "#other_header_character_refresh", function() {
 		
 		playAudio("button_click.wav");
 
@@ -818,6 +843,7 @@ $(function() {
 	$("#management").on("click", "#sidebar_scoreboard_option", function() {
 
 		playAudio("button_click.wav");
+		
 		setClickableOptionsShadow("sidebar_scoreboard_option");
 
 		if (canClickButton) {
@@ -1056,6 +1082,37 @@ function setCount(item, secondInventory) {
     return count;
 }
 
+function playerAchievementsSetup(achievements, otherSource){
+
+    $("#playerAchievements").html("");
+    $("#otherPlayerAchievements").html("");
+
+	var achievementsCount = 0;
+
+    $.each(achievements, function (index, achievement) {
+
+		//-- Types: BASIC, UNCOMMON, RARE, UNIQUE
+
+		achievementsCount++;
+
+		if (otherSource == true){
+			$("#otherPlayerAchievements").append('<div class="achievementSlot" style = "box-shadow: 0px 4px 10px ' + achievement.color + ';" ><div id="achievement-' + index + '" class="achievement" style = "background-image: url(\'img/achievements/' + achievement.image + '.png\')">' +
+			'<div class="achievement-type" style = "color: ' + achievement.color + '; text-shadow: 0 0 5px ' + achievement.color + '" >' + achievement.type + '</div> <div data-tooltip = "' + achievement.description + '"; class="achievement-name" style = "margin-left: 2.8vw;" >' + achievement.title + '</div> </div ><div class="achievement-name-bg"></div></div>');
+		
+		}else{
+			$("#playerAchievements").append('<div class="achievementSlot" style = "box-shadow: 0px 4px 10px ' + achievement.color + ';" ><div id="achievement-' + index + '" class="achievement" style = "background-image: url(\'img/achievements/' + achievement.image + '.png\')">' +
+			'<div class="achievement-type" style = "color: ' + achievement.color + '; text-shadow: 0 0 5px ' + achievement.color + '" >' + achievement.type + '</div> <div data-tooltip = "' + achievement.description + '"; class="achievement-name">' + achievement.title + '</div> </div ><div class="achievement-name-bg"></div></div>');
+		}
+    });
+
+	if (otherSource == true){
+		document.getElementById("other_header_character_achievements_title").innerHTML = Locales.profileAchievements + " " + achievementsCount;
+	}else{
+		document.getElementById("header_character_achievements_title").innerHTML = Locales.profileAchievements + " " + achievementsCount;
+	}
+
+}
+
 function inventorySetup(items) {
     $("#playerInventory").html("");
     $.each(items, function (index, item) {
@@ -1097,19 +1154,19 @@ function inventorySetup(items) {
     });
 }
 
-function secondPlayerInventorySetup(items) {
-    $("#secondPlayerInventory").html("");
+function secondPlayerInventorySetup(items, inventoryType) {
+    $(inventoryType).html("");
 
     $.each(items, function (index, item) {
         count = setCount(item);
 		
         if (item.type != "item_weapon" && item.type != "item_account"){
-            $("#secondPlayerInventory").append('<div class="secondPlayerSlot"><div id="secondPlayerItem-' + index + '" class="secondPlayerItem" style = "background-image: url(\'img/items/' + item.name + '.png\')">' +
+            $(inventoryType).append('<div class="secondPlayerSlot"><div id="secondPlayerItem-' + index + '" class="secondPlayerItem" style = "background-image: url(\'img/items/' + item.name + '.png\')">' +
             '<div class="secondPlayerItem-count">' + count + '</div> <div class="secondPlayerItem-name">' + item.label + '</div> </div ><div class="secondPlayerItem-name-bg"></div></div>');
         }else if (item.type == "item_weapon" && item.type != "item_account"){
-			$("#secondPlayerInventory").append('<div class="secondPlayerSlot"><div id="secondPlayerItem-' + index + '" class="secondPlayerItem" style = "background-image: url(\'img/items/' + item.name + '.png\')">' + '<div class="secondPlayerItem-count">' + count + '</div> <div class="secondPlayerItem-name">' + item.label + '</div> </div ><div class="secondPlayerItem-name-bg"></div></div>');
+			$(inventoryType).append('<div class="secondPlayerSlot"><div id="secondPlayerItem-' + index + '" class="secondPlayerItem" style = "background-image: url(\'img/items/' + item.name + '.png\')">' + '<div class="secondPlayerItem-count">' + count + '</div> <div class="secondPlayerItem-name">' + item.label + '</div> </div ><div class="secondPlayerItem-name-bg"></div></div>');
 		}else{
-            $("#secondPlayerInventory").append('<div class="secondPlayerSlot"><div id="secondPlayerItem-' + index + '" class="secondPlayerItem" style = "background-image: url(\'img/items/' + item.name + '.png\')">' +
+            $(inventoryType).append('<div class="secondPlayerSlot"><div id="secondPlayerItem-' + index + '" class="secondPlayerItem" style = "background-image: url(\'img/items/' + item.name + '.png\')">' +
             '<div class="secondPlayerItem-count">' + count + '</div>' + ' <div class="secondPlayerItem-name">' + item.label + '</div> </div ><div class="secondPlayerItem-name-bg"></div></div>');
         }
 		
@@ -1136,27 +1193,6 @@ function secondInventorySetup(items) {
 		
         $('#secondItem-' + index).data('secondItem', item);
         $('#secondItem-' + index).data('inventory', "main");
-    });
-}
-
-function otherInventorySetup(items) {
-    $("#otherPlayerInventory").html("");
-
-    $.each(items, function (index, item) {
-        count = setCount(item);
-		
-        if (item.type != "item_weapon" && item.type != "item_account"){
-            $("#otherPlayerInventory").append('<div class="otherSlot"><div id="otherItem-' + index + '" class="otherItem" style = "background-image: url(\'img/items/' + item.name + '.png\')">' +
-            '<div class="otherItem-count">' + count + '</div> <div class="otherItem-name">' + item.label + '</div> </div ><div class="otherItem-name-bg"></div></div>');
-        }else if (item.type == "item_weapon" && item.type != "item_account"){
-			$("#otherPlayerInventory").append('<div class="otherSlot"><div id="otherItem-' + index + '" class="otherItem" style = "background-image: url(\'img/items/' + item.name + '.png\')">' + '<div class="otherItem-count">' + count + '</div> <div class="otherItem-name">' + item.label + '</div> </div ><div class="otherItem-name-bg"></div></div>');
-		}else{
-            $("#otherPlayerInventory").append('<div class="otherSlot"><div id="otherItem-' + index + '" class="otherItem" style = "background-image: url(\'img/items/' + item.name + '.png\')">' +
-            '<div class="otherItem-count">' + count + '</div>' + ' <div class="otherItem-name">' + item.label + '</div> </div ><div class="otherItem-name-bg"></div></div>');
-        }
-		
-        $('#otherItem-' + index).data('otherItem', item);
-        $('#otherItem-' + index).data('inventory', "main");
     });
 }
 
