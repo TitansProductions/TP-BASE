@@ -80,9 +80,15 @@ RegisterNUICallback('personalInformation', function()
 end)
 
 RegisterNUICallback('changeAvatarUrl', function(table)
+
 	TriggerServerEvent("tp-base:changeSelectedAvatarUrl", table.url)
 	Wait(500)
-	openPersonalInformation()
+
+	SendNUIMessage({
+		action = 'changePlayerAvatar',
+		avatar_url = table.url,
+	})
+
 end)
 
 RegisterNUICallback('openTicketCreation', function()
@@ -304,6 +310,34 @@ function openPersonalInformation()
 	
 			})
 	
+			local achievements = {}
+
+			ESX.TriggerServerCallback("tp-base:fetchPlayerAchievements", function(achievement_data)
+
+				for k, v in pairs(achievement_data) do
+
+					achievementData = {
+						name = v.achievement,
+						title = v.title,
+						type = v.type,
+						description = v.description,
+						image = v.image,
+						color = v.color,
+					}
+
+					table.insert(achievements, achievementData)
+				end
+
+				SendNUIMessage(
+                    {
+                        action = "addPlayerAchievements",
+                        achievementsList = achievements,
+						otherSource = false,
+                    }
+                )
+	
+			end, nil)
+
 			uiType = "enable_personal_iformation"
 			EnableGui(true, uiType)
 

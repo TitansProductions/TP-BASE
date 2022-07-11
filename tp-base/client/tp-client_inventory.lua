@@ -300,7 +300,7 @@ function loadPlayerInventory(targetSource, inventoryType)
                     else
                         inventory[key].type = "item_standard"
 						
-			if Config.ItemDescriptions[inventory[key].name] then
+                        if Config.ItemDescriptions[inventory[key].name] then
                             local description = Config.ItemDescriptions[inventory[key].name]
                             inventory[key].description = description
                         else
@@ -326,7 +326,7 @@ function loadPlayerInventory(targetSource, inventoryType)
                             weaponLabel = Config.WeaponLabelNames[weapons[key].name]
                         end
 						
-			local weaponDescription = "none"
+                        local weaponDescription = "none"
 
                         if Config.ItemDescriptions[weapons[key].name] then
                             weaponDescription = Config.ItemDescriptions[weapons[key].name]
@@ -340,7 +340,7 @@ function loadPlayerInventory(targetSource, inventoryType)
                                 limit = -1,
                                 type = "item_weapon",
                                 name = weapons[key].name,
-				description = weaponDescription,
+                                description = weaponDescription,
                                 usable = false,
                                 rare = false,
                                 canRemove = true

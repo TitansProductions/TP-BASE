@@ -42,7 +42,7 @@ RegisterNUICallback('openOnlinePlayersList', function()
 end)
 
 
-RegisterNUICallback('openSelectedPlayerProfile', function(table)
+RegisterNUICallback('openSelectedPlayerProfile', function(_table)
 
 	ESX.TriggerServerCallback("tp-base:fetchUserGroup", function(playerGroup)
 		if Config.WhitelistedGroups[playerGroup] then
@@ -52,28 +52,57 @@ RegisterNUICallback('openSelectedPlayerProfile', function(table)
 			uiType = "enable_loading"
 		
 			EnableGui(true, uiType)
-		
+
 			ESX.TriggerServerCallback("tp-base:fetchSelectedUserData", function(data)
 		
 				SendNUIMessage({
 					action       = 'addSelectedPlayerInformation',
 					avatar_url   = data['avatar_url'],
-					steamName    = table.steamName,
+					steamName    = _table.steamName,
 					name         = data['firstname'] .. " " .. data['lastname'],
-					money        = table.money,
-					bank         = table.bank,
-					black_money  = table.black_money,
-					dc           = table.dc,
-					source       = table.source,
+					money        = _table.money,
+					bank         = _table.bank,
+					black_money  = _table.black_money,
+					dc           = _table.dc,
+					source       = _table.source,
 				})
 		
-				loadPlayerInventory(table.source)
+				loadPlayerInventory(_table.source)
+
+				ESX.TriggerServerCallback("tp-base:fetchPlayerAchievements", function(achievement_data)
+
+					local achievements = {}
 		
-				Wait(2000)
+					for k, v in pairs(achievement_data) do
+	
+						achievementData = {
+							name = v.achievement,
+							title = v.title,
+							type = v.type,
+							description = v.description,
+							image = v.image,
+							color = v.color,
+						}
+	
+						table.insert(achievements, achievementData)
+					end
+	
+					SendNUIMessage(
+						{
+							action = "addPlayerAchievements",
+							achievementsList = achievements,
+							otherSource = true,
+						}
+					)
+		
+				end, _table.identifier)
+
+				Wait(1000)
+				
 				uiType = "enable_selected_user_personal_iformation"
 				EnableGui(true, uiType)
 		
-			end, table.identifier)
+			end, _table.identifier)
 		else
 			ESX.ShowNotification('~r~You do not have sufficient permissions to perform this action.')
 		end
