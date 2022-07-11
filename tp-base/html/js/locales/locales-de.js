@@ -20,7 +20,7 @@ Locales.profileBlackMoney = "SCHWARZGELD";
 
 Locales.profileChangeUrl = "Avatar ändern";
 Locales.profileRefresh   = "Aktualisieren";
-Locales.profileAchievements = "ERFOLGE:"
+Locales.profileAchievements = "ERFOLGE:";
 
 // Scoreboard Locales.
 Locales.scoreboardOnlinePlayers = "Online Spieler: ";
