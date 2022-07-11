@@ -3,6 +3,45 @@ ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
+-- load users achievements.
+ESX.RegisterServerCallback("tp-base:fetchPlayerAchievements", function(source, cb, identifier)
+    local _source           = source
+    local targetIdentifier  = nil
+
+    if identifier ~= nil then
+        targetIdentifier    = identifier
+    else
+        local xPlayer       = ESX.GetPlayerFromId(_source)
+        targetIdentifier    = xPlayer.identifier
+    end
+	
+    local achievementResults                 = MySQL.Sync.fetchAll('SELECT * FROM base_achievements')
+    local achievementElements                =  {}
+
+    for i=1, #achievementResults, 1 do
+
+        local achievementData                = achievementResults[i]
+
+        if achievementData.identifier == targetIdentifier then
+
+            if Achievements[achievementData.achievement] then
+                table.insert(achievementElements, {
+                    name        = achievementData.achievement, 
+                    title       = Achievements[achievementData.achievement].title, 
+                    description = Achievements[achievementData.achievement].description, 
+                    type        = Achievements[achievementData.achievement].type,
+                    image       = Achievements[achievementData.achievement].image,
+                    color       = Achievements.TypeColors[Achievements[achievementData.achievement].type],
+                })
+            end
+
+        end
+
+    end
+
+    cb(achievementElements)
+end)
+
 -- Loading users data
 ESX.RegisterServerCallback("tp-base:fetchUserData", function(source, cb)
     local _source = source
