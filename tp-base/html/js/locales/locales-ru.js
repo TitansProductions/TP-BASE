@@ -20,7 +20,7 @@ Locales.profileBlackMoney = "ГРЯЗНЫЕ ДЕНЬГИ";
 
 Locales.profileChangeUrl = "Изменить Ссылку Аватарки";
 Locales.profileRefresh   = "обновить";
-Locales.profileAchievements = "ДОСТИЖЕНИЯ:"
+Locales.profileAchievements = "ДОСТИЖЕНИЯ:";
 
 // Scoreboard Locales.
 Locales.scoreboardOnlinePlayers = "Игроки Онлайн: ";
