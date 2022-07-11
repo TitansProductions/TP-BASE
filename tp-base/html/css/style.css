@@ -76,15 +76,20 @@ body {
 	cursor: pointer;
 }
 
+
 .downbar_option{
     position: absolute;
 
-	color:rgba(250, 250, 250, 0.52);
+	color:rgba(250, 250, 250, 0.856);
 	font-size: 0.8vw;
 	text-align: center;
 	
-	width: fit-content;
-    height: 1.4vw;
+	width: 1.6vw;
+    height: 1.1vw;
+	padding-top: 0.4vw;
+
+	 
+	background-color: rgb(29, 29, 29);
 }
 
 .downbar_option:hover {
@@ -104,7 +109,7 @@ body {
 
 
 #downbar_discord_option {
-	margin-left: -0.7vw;
+	margin-left: -1.5vw;
 	margin-top: 33vw;
 }
 
@@ -154,23 +159,6 @@ body {
     text-align: center;
 
 }
-
-#selected_user_centerinfo{
-    justify-content: center;
-    float: center;
-	margin-top: 24%;
-	margin-left: 1%;
-    display: flex;
-    justify-content: center;
-    align-items: right;
-    
-}
-
-#selected_user_centerinfo div{
-    text-align: center;
-    line-height: 40px;   
-}
-
 
 #sidebar_inventory_option:hover {
 	text-shadow: 0 0 5px white;
@@ -226,23 +214,20 @@ select[type=field] {
 button {
 	font-family: "Prototype", serif;
 	display: block;
-	margin-top: 0px;
-	padding: 10px;
+
 	background-color: #5f1f1fb9;
 	border: 0;
 	color: rgba(255, 255, 255, 0.719);
-	width: 90%;
+
 	margin-left: 5%;
 	margin-right: 5%;
-
-	font-size: 14px;
 }
 
 button:hover{
 
 	cursor: pointer;
-	background-color: rgb(87, 0, 0);
-	box-shadow: 0px 0px 15px rgb(87, 0, 0);
+	background-color: rgb(61, 61, 61);
+	box-shadow: 0px 0px 15px rgb(61, 61, 61);
 }
 
 .nearbyPlayerButton {
@@ -269,12 +254,12 @@ button:hover{
 
 #playerInventory {
     width: 75vw;
-    height: 39vw;
+    height: 36.5vw;
 
     float: left;
 
-    margin-left: 19vw;
-    margin-top: -26vw;
+    margin-left: 17.8vw;
+    margin-top: -23vw;
 	
     overflow-y: scroll;
 	border-radius: 10px;
@@ -379,86 +364,11 @@ input[type=number] {
     height: 0.4vw;
 }
 
-.otherSlot {
-    float: left;
-
-    width: 11vw;
-    height: 7vw;
-
-    background-color: rgba(0, 0, 0, 0.5);
-    margin: 6px;
-    position: relative;
-	border-radius: 10px;
-	box-shadow: 0px 4px 10px rgba(182, 3, 18, 0.253);
-	
-}
-
-.otherSlot:hover {
-    opacity: 0.8;
-}
-
-.otherItem,
-.otherItem-other {
-    width: 10.8vw;
-    height: 4.2vw;
-	
-	margin-top:0.5vw;
-
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-.otherItem-name {
-	position: absolute;
-
-    color: rgb(177, 177, 177);
-    text-shadow: 0 0 5px rgb(177, 177, 177);
-	font-size: 0.5vw;
-
-    bottom: 0;
-    text-align: left;
-
-    width: 10.8vw;
-    min-height: 0.8vw;
-
-	text-transform:none;
-}
-
-.otherItem-name-bg {
-    width: 100%;
-    width: 10vw;
-	
-    position: absolute;
-    bottom: 0;
-}
-
-.ui-draggable-dragging .otherItem-name,
-.ui-draggable-dragging .otherItem-count {
-    display: none;
-}
-
-.otherItem-count {
-	position: absolute;
-
-    color: rgb(45, 156, 101);
-    text-shadow: 0 0 5px rgb(46, 206, 126);
-    text-align: left;
-
-	font-size: 0.5vw;
-	margin-left: 0.4vw;
-
-	margin-top: -0.3vw;
-
-	text-transform:none;
-}
-
-
 #playerShortcuts {
     position: absolute;
 
     margin-left: 23.5vw;
-    margin-top: 41.5vw;
+    margin-top: 44vw;
 
     width: 100%;
 
@@ -476,33 +386,6 @@ input[type=number] {
 }
 
 #playerInventory::-webkit-scrollbar-thumb {
-	background: rgba(121, 29, 29, 0.527);
-    border: 2px solid rgba(0, 0, 0, 1);
-}
-
-#otherPlayerInventory {
-    width: 55.3%;
-    height: 54%;
-    float: left;
-    margin-left: 15vw;
-    margin-top: -30vw;
-    overflow-y: scroll;
-	border-radius: 10px;
-	background: rgba(8, 8, 8, 0.527);
-	box-shadow: 0px 4px 10px rgba(122, 122, 122, 0.685);
-}
-
-#otherPlayerInventory::-webkit-scrollbar-track {
-    background-color: none;
-    border: none;
-}
-
-#otherPlayerInventory::-webkit-scrollbar {
-    width: 10px;
-	background: rgba(24, 24, 24, 0);
-}
-
-#otherPlayerInventory::-webkit-scrollbar-thumb {
 	background: rgba(121, 29, 29, 0.527);
     border: 2px solid rgba(0, 0, 0, 1);
 }
@@ -600,7 +483,7 @@ input[type=number] {
 #playerButtons {
 	position: absolute;
 
-    margin-top: 38vw;
+    margin-top: 39.5vw;
     margin-left: 46.2vw;
 
     width: fit-content;
@@ -786,7 +669,7 @@ input[type=number] {
 	opacity: 0.7;
 }
 
-#secondPlayerInventory {
+#secondPlayerInventory, #selectedPlayerInventory {
 	position: absolute;
     width: 43%;
     height: 54%;
@@ -906,7 +789,7 @@ input[type=number] {
 	margin-left: 65vw;
 }
 
-#header_avatar {
+#header_avatar, #other_header_avatar {
 	position: absolute;
 
 	color:rgb(195, 194, 194);
@@ -921,23 +804,7 @@ input[type=number] {
     overflow: hidden;
 }
 
-#header_other_avatar {
-	position: absolute;
-
-	color:rgb(195, 194, 194);
-
-	font-size: 1vw;
-
-    width: fit-content;
-    height: fit-content;
-
-	margin-top: -32vw;
-	margin-left: 15vw;
-    overflow: hidden;
-}
-
-
-#header_character_stats {
+#header_character_stats, #other_header_character_stats {
 	position: absolute;
 
 	color:rgb(195, 194, 194);
@@ -947,12 +814,12 @@ input[type=number] {
     width: fit-content;
     height: fit-content;
 
-	margin-top: -4vw;
-	margin-left: 15vw;
+	margin-top: -18vw;
+	margin-left: 16vw;
 }
 
  
-#header_character_stats_description {
+#header_character_stats_description, #other_header_character_stats_description {
 	position: absolute;
 
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -963,8 +830,8 @@ input[type=number] {
     width: fit-content;
     height: fit-content;
 
-	margin-top: -2.5vw;
-	margin-left: 15vw;
+	margin-top: -16.7vw;
+	margin-left: 16vw;
 }
 
 .header_character_stats_option {
@@ -978,42 +845,41 @@ input[type=number] {
 	font-size: 0.7vw;
 	text-align: center;
 
+	margin-top: -15.7vw;
+
 	width: 10vw;
     height: fit-content;
 
 }
 
 
-#header_character_stats_money_title {
+#header_character_stats_money_title, #other_header_character_stats_money_title {
 	position: absolute;
 
-	margin-top: -1.5vw;
-	margin-left: 15vw;
+	margin-left: 16vw;
 }
 
-#header_character_stats_bank_title {
+#header_character_stats_bank_title, #other_header_character_stats_bank_title {
 	position: absolute;
 
-	margin-top: -1.5vw;
-	margin-left: 25vw;
+	margin-left: 26vw;
 }
 
 
-#header_character_stats_black_money_title {
+#header_character_stats_black_money_title, #other_header_character_stats_black_money_title {
 	position: absolute;
 
-	margin-top: -1.5vw;
-	margin-left: 35vw;
+	margin-left: 36vw;
 }
 
-#header_character_stats_result_background {
+#header_character_stats_result_background, #other_header_character_stats_result_background {
 	position: absolute;
 	background-color: rgb(20, 20, 20);
 
 	width: 30vw;
     height: 1vw;
-	margin-top: 0vw;
-	margin-left: 15vw;
+	margin-top: -13.8vw;
+	margin-left: 16vw;
 
 	border: 2px rgb(49, 49, 49) solid;
 	border-radius: 5%;
@@ -1028,25 +894,24 @@ input[type=number] {
 
 	text-align: center;
 
+	margin-top: -13.6vw;
+
 	width: 10vw;
 	height: fit-content;
 }
 
 
-#header_character_stats_money {
-	margin-top: 0.1vw;
-	margin-left: 15vw;
+#header_character_stats_money, #other_header_character_stats_money {
+	margin-left: 15.42vw;
 }
 
-#header_character_stats_bank {
-	margin-top: 0.1vw;
-	margin-left: 25vw;
+#header_character_stats_bank, #other_header_character_stats_bank {
+	margin-left: 25.42vw;
 }
 
 
-#header_character_stats_blackmoney {
-	margin-top: 0.1vw;
-	margin-left: 35vw;
+#header_character_stats_blackmoney, #other_header_character_stats_blackmoney {
+	margin-left: 35.42vw;
 }
 
 
@@ -1056,174 +921,44 @@ input[type=number] {
 	left: 0;
 }
 
-.selected_user_avatar_image {
+#other_header_character_refresh {
 	position: absolute;
 
-	width: 7vw;
-	height: 7vw;
-
-    top: -35vw;
-    left: 85vw;
-
-	border: 5px rgb(47, 4, 0) solid;
-	border-radius: 50%;
-	opacity: 0.7;
-
-}
-
-
-#selected_user_avatar_url_input {
-
-	font-size:14px;
-    width: 296px;
-    height: 40px;
-    top: -1437.0px;
-    left: 530px;
-    position: relative;
-}
-
-
-#other_header_character_stats {
-	position: absolute;
-
-	color:rgb(195, 194, 194);
-
-	font-size: 0.9vw;
-
-    width: fit-content;
-    height: fit-content;
-
-	margin-top: 1vw;
-	margin-left: 15vw;
-}
-
- 
-#other_header_character_stats_description {
-	position: absolute;
-
-	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-	color:rgb(195, 194, 194);
-
-	font-size: 0.6vw;
-
-    width: fit-content;
-    height: fit-content;
-
-	margin-top: 2.4vw;
-	margin-left: 15vw;
-}
-
-.other_header_character_stats_option {
-	position: absolute;
-	
-	background-color: rgb(7, 7, 7);
-	color:rgb(67, 100, 190);
-	font-size: 0.6vw;
-
-	border: 2px rgb(49, 49, 49) solid;
-	border-radius: 5%;
-    overflow: hidden;
-
-	margin-top: 4vw;
+	color:rgb(185, 185, 185);
 
 	text-align: center;
+	font-size: 0.7vw;
 
-	width: 10vw;
-    height: fit-content;
-}
+	width: 6vw;
+    height: 1vw;
 
-#other_header_character_stats_money_title {
-	margin-left: 15vw;
-}
+	margin-top: 9vw;
+	margin-left: 16vw;
 
-#other_header_character_stats_bank_title {
-	margin-left: 25vw;
-}
+	padding-top: 0.25vw;
 
-
-#other_header_character_stats_black_money_title {
-	margin-left: 35vw;
-}
-
-
-.other_header_character_stats_count {
-	position: absolute;
-	color:rgb(92, 190, 67);
-
-	margin-top: 7.5vw;
-
-	font-size: 0.6vw;
-
-	text-align: center;
-
-	width: 10vw;
-    height: fit-content;
-}
-
-
-
-#selected_user_header_character_stats_money {
-	background-color: rgb(49, 49, 49);
-
-	margin-left: 15vw;
-
-	border: 2px rgb(20, 20, 20) solid;
-	border-radius: 5%;
-    overflow: hidden;
-}
-
-#selected_user_header_character_stats_bank {
-	background-color: rgb(49, 49, 49);
-
-	margin-left: 25vw;
-
-	border: 2px rgb(20, 20, 20) solid;
-	border-radius: 5%;
-    overflow: hidden;
-}
-
-
-#selected_user_header_character_stats_blackmoney {
-	background-color: rgb(49, 49, 49);
-	margin-left: 35vw;
-
-	border: 2px rgb(20, 20, 20) solid;
-	border-radius: 5%;
-    overflow: hidden;
-}
-
-
-
-#selected_user_header_character_refresh {
-	color:rgb(38, 45, 146);
-	background-color: rgb(7, 7, 7);
-	font-size:18px;
-	width: 150px;
-    height: 40px;
-    top: -684.0px;
-    left: 860px;
-    position: absolute;
+	background-color: rgb(22, 0, 0);
 	border: 2px rgb(49, 49, 49) solid;
-	border-radius: 5%;
+	border-radius: 8%;
     overflow: hidden;
 }
 
-#selected_user_header_character_refresh:hover {
+#other_header_character_refresh:hover {
 	cursor: pointer;
-	text-shadow: 0 0 5px blue;
+	text-shadow: 0 0 5px rgb(187, 187, 187);
 }
 
 
-.avatar_image {
+.avatar_image, .selected_avatar_image {
 	position: absolute;
 
-	width: 7vw;
-	height: 7vw;
+	width: 9.4vw;
+	height: 9.4vw;
 
-    top: -35vw;
-    left: 85vw;
+    top: -28.80vw;
+    left: 15vw;
 
-	border: 5px rgb(47, 4, 0) solid;
+	border: 3px rgb(47, 4, 0) solid;
 	border-radius: 50%;
 	opacity: 0.7;
 
@@ -1232,98 +967,148 @@ input[type=number] {
 
 #avatar_url_input {
 	position: absolute;
+
 	font-size: 0.6vw;
 	color: snow;
 
-    width: 10vw;
+    width: 15vw;
     height: 1.2vw;
 
-    margin-top: -26vw;
-    margin-left: 84vw;
+    margin-top: -22.0vw;
+    margin-left: 26vw;
 }
 
 #avatar_url_set {
 	position: absolute;
 	font-size: 0.6vw;
 
+	color: rgba(255, 255, 255, 0.719);
 	text-align: center;
 
     width: 7vw;
     height: fit-content;
 
-    margin-top: -24vw;
-    margin-left: 85.5vw;
+    margin-top: -21.8vw;
+    margin-left: 43vw;
+
+	background-color: #374151;
+	border-radius: 2vw;
+	border-style: none;
+	box-sizing: border-box;
 }
 
-
-#usersranking_main{
-	background-color: rgba(7, 7, 7, 0.65);
-	width: 90%;
-	height: 8.5%;
-	color: white;
-	display: inline-block;
-	flex: 0 0 auto;
-	max-height: 100%;
-	margin: 1.8%;
-	/* background-size: 100%; */
-}
-
-#usersranking_det{
-	border-radius: 0px;
-	background-color: rgba(7, 7, 7, 0.65);
-	border: 1px solid rgba(182, 3, 18, 0.253);
-	box-shadow: 0px 4px 10px rgba(182, 3, 18, 0.253);
-	height: 105%;
-}
-
-.usersranking_avatar_parent {
-	position: relative;
-	top: 0;
-	left: 0;
-}
-
-
-.usersranking_avatar {
-	position: absolute;
-	width: 50px;
-	height: 50px;
-	top : -45.0px;
-	left: 5px;
-	border: 2px rgb(47, 4, 0) solid;
-	border-radius: 50%;
-	opacity: 0.7;
-
-}
-
-#usersranking_avatar:hover {
+#avatar_url_set:hover{
 	cursor: pointer;
-	text-shadow: 0 0 5px white;
+	background-color: rgb(61, 61, 61);
+	box-shadow: 0px 0px 15px rgb(61, 61, 61);
 }
 
-#usersranking_header_description {
-	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-	color:rgb(131, 131, 131);
 
-	font-size:18px;
-    width: 400px;
-    height: 40px;
-    top: -820.8px;
-    left: 252.5px;
+#header_character_achievements_title, #other_header_character_achievements_title {
+	position: absolute;
+
+	color:rgb(200, 200, 200);
+
+	font-size: 1vw;
+	text-align: left;
+
+	width: fit-content;
+    height: fit-content;
+
+	margin-top: -31vw;
+	margin-left: 54vw;
+	
+}
+
+#playerAchievements, #otherPlayerAchievements {
+	position: absolute;
+    width: 41vw;
+    height: 40.0vw;
+
+    float: left;
+
+    margin-left: 53.8vw;
+    margin-top: -29vw;
+	
+    overflow-y: scroll;
+
+	background: rgba(8, 8, 8, 0.527);
+	box-shadow: 0px 4px 10px rgba(27, 53, 122, 0.685);
+}
+
+
+.achievementSlot {
+    float: left;
+
+    width: 11vw;
+    height: 9.5vw;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 6px;
+	margin-left: 1vw;
     position: relative;
-
-    overflow: hidden;
+	border-radius: 2vw;
+	box-shadow: 0px 4px 10px rgba(121, 121, 121, 0.253);
+	
 }
 
-#usersranking_id_display{
-	background-color: rgba(7, 7, 7, 0.438);
-	color: rgba(109, 109, 109, 0.712);
-	font-size: 12px;
-	margin-right: 0%;
-	margin-left: 0%;
-	border: 1px solid rgba(182, 3, 18, 0.153);
-	box-shadow: 0px 4px 10px rgba(182, 3, 18, 0.153);
-	width: 200px;
+.achievementSlot:hover {
+    opacity: 0.8;
 }
+
+
+.achievement-type {
+	position: absolute;
+
+    color: rgb(45, 156, 101);
+    text-shadow: 0 0 5px rgb(46, 206, 126);
+    text-align: center;
+
+	font-size: 0.5vw;
+	margin-left: 6.90vw;
+
+	margin-top: 6.8vw;
+
+	text-transform:none;
+}
+
+.achievement,
+.achievement-other {
+    width: 15.8vw;
+    height: 6.2vw;
+	
+	margin-top:0.5vw;
+	margin-left: -2.55vw;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.achievement-name {
+	position: absolute;
+
+    color: rgb(177, 177, 177);
+    text-shadow: 0 0 5px rgb(177, 177, 177);
+	font-size: 0.5vw;
+
+    bottom: 0;
+    text-align: left;
+
+    padding-bottom: 0.2vw;
+    padding-left: 2.72vw;
+
+    width: 10.65vw;
+    min-height: 0.8vw;
+
+	text-transform:none;
+}
+
+.ui-draggable-dragging .achievement-name,
+.ui-draggable-dragging .achievement-count {
+    display: none;
+}
+
 
 #ticket_option {
 	position: absolute;
@@ -1521,7 +1306,7 @@ input[type=number] {
 
     float: left;
 
-    margin-left: 19vw;
+    margin-left: 17.8vw;
     margin-top: -28vw;
 	
     overflow-y: scroll;
@@ -1552,13 +1337,13 @@ input[type=number] {
 
 #userslist_header_description {
     position: absolute;
-	color:rgb(90, 90, 90);
+	color:rgb(163, 163, 163);
 
 	font-size: 1vw;
     width: fit-content;
     height: fit-content;
 
-    margin-left: 19vw;
+    margin-left: 17.8vw;
     margin-top: -34.5vw;
 }
 
@@ -1568,7 +1353,7 @@ input[type=number] {
     width: 75vw;
     height: 2.0vw;
 
-    margin-left: 19vw;
+    margin-left: 17.8vw;
     margin-top: -32.5vw;
 
 	background-color: rgba(0, 0, 0, 0.4);
@@ -1589,7 +1374,7 @@ input[type=number] {
     width: fit-content;
     height: fit-content;
 
-    margin-left: 19vw;
+    margin-left: 17.8vw;
     margin-top: -32vw;
 
 }
@@ -1658,22 +1443,22 @@ input[type=number] {
 
 #userslist_steamname_header{
 	margin-top: -29.05vw;
-	margin-left: 27.8vw;
+	margin-left: 26.6vw;
 }
 
 #userslist_username_header{
 	margin-top: -29.05vw;
-	margin-left: 47vw;
+	margin-left: 45.8vw;
 }
 
 #userslist_id_header{
 	margin-top: -29.05vw;
-	margin-left: 64.5vw;
+	margin-left: 63.3vw;
 }
 
 #userslist_ms_header{
 	margin-top: -29.05vw;
-	margin-left: 80.5vw;
+	margin-left: 79.3vw;
 }
 
 
