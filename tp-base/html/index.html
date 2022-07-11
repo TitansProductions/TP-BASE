@@ -21,6 +21,7 @@
 					clickOutside: true
 				});
 			});
+
 		</script>
 		
 		<div class="background">
@@ -167,7 +168,10 @@
 
 				<div id="centerinfo" style="display: block;">
 
-					<div id="header_avatar">
+					<div id="info_background" style="margin-left: 14.3vw"></div>
+					<div id="info_options_background" style="margin-left: 14.3vw"></div>
+
+					<div id="header_avatar" style = "margin-top: -33vw">
 					    <text> PERSONAL PROFILE</text>
 				    </div><br>
 
@@ -176,7 +180,7 @@
 					</div>
 
 					<input id="avatar_url_input" type="text" placeholder="Avatar Url">
-                    <button name = "avatar_url_set" class = "submit" value = "avatar_url_set" id="avatar_url_set" type="submit">Change</button>
+                    <div id="avatar_url_set">Change</div>
 
 					<div id="header_character_stats">
 					    <text> Character Statistics</text>
@@ -213,6 +217,14 @@
 					<div class = "header_character_stats_count" id="header_character_stats_blackmoney">
 					    <text></text>
 				    </div>
+
+					<div id = "header_character_achievements_title">
+					    <text>ACHIEVEMENTS</text>
+				    </div>
+				
+					<div id="playerAchievements">
+
+					</div>
 
 				</div>
 
@@ -267,58 +279,70 @@
 
 			<form id="enable_selected_user_personal_iformation">
 
-				<div id="selected_user_centerinfo" style="display: block;">
+				<div id="info_background"></div>
+				<div id="info_options_background"></div>
+				
+				<div id="other_header_avatar" style = "margin-top: -33.0vw; margin-left: 16vw;">
+					<text> PLAYER PERSONAL PROFILE</text>
+				</div><br>
 
-					<div id="header_other_avatar">
-					    <text> PLAYER PERSONAL PROFILE</text>
-				    </div><br>
-
-					<div class="avatar_parent">
-						<img id = "selected_user_avatar_image" class="selected_user_avatar_image" src="" />
-					</div>
-
-					<div id="otherPlayerInventory">
-
-					</div>
-
-					<div id="other_header_character_stats">
-					    <text> Character Statistics</text>
-				    </div>
-
-					<div id="other_header_character_stats_description">
-					    <text> Statistics Overview</text>
-				    </div><br>
-
-					<div class = "other_header_character_stats_option" id="other_header_character_stats_money_title">
-					    <text>HOLDING CASH</text>
-				    </div>
-
-					<div class = "other_header_character_stats_option" id="other_header_character_stats_bank_title">
-					    <text>BANK ACCOUNT</text>
-				    </div>
-
-					<div class = "other_header_character_stats_option" id="other_header_character_stats_black_money_title">
-					    <text>BLACK MONEY</text>
-				    </div>
-
-
-					<div class = "other_header_character_stats_count"  id="selected_user_header_character_stats_money">
-					    <text></text>
-				    </div>
-
-					<div class = "other_header_character_stats_count"  id="selected_user_header_character_stats_bank">
-					    <text></text>
-				    </div>
-
-					<div class = "other_header_character_stats_count"  id="selected_user_header_character_stats_blackmoney">
-					    <text></text>
-				    </div>
-
-					<div id="selected_user_header_character_refresh">
-					    <text>REFRESH</text>
-				    </div>
-					
+				<div class="avatar_parent">
+					<img id = "selected_avatar_image" class="selected_avatar_image" style = "width: 2.4vw; height: 2.4vw; top: -34.7vw; left: 92vw;" src="" />
 				</div>
+
+				<div id="selectedPlayerInventory" style = "margin-top: -30vw; margin-left: 16vw;">
+
+				</div>
+
+				<div id="other_header_character_stats" style = "margin-top: 1.5vw;">
+					<text> Character Statistics</text>
+				</div>
+
+				<div id="other_header_character_stats_description" style = "margin-top: 3vw;">
+					<text> Statistics Overview</text>
+				</div><br>
+
+				<div class = "header_character_stats_option" id="other_header_character_stats_money_title" style = "margin-top: 3.5vw;">
+					<text>HOLDING CASH</text>
+				</div>
+
+				<div class = "header_character_stats_option" id="other_header_character_stats_bank_title" style = "margin-top: 3.5vw;">
+					<text>BANK ACCOUNT</text>
+				</div>
+
+				<div class = "header_character_stats_option" id="other_header_character_stats_black_money_title" style = "margin-top: 3.5vw;">
+					<text>BLACK MONEY</text>
+				</div>
+
+				<div id="other_header_character_stats_result_background" style = "margin-top: 5vw;">
+					<text></text>
+				</div>
+
+
+				<div class = "header_character_stats_count" id="other_header_character_stats_money" style = "margin-top: 5.2vw; margin-left: 15.5vw;">
+					<text></text>
+				</div>
+
+				<div class = "header_character_stats_count" id="other_header_character_stats_bank" style = "margin-top: 5.2vw; margin-left: 25.5vw;">
+					<text></text>
+				</div>
+
+				<div class = "header_character_stats_count" id="other_header_character_stats_blackmoney" style = "margin-top: 5.2vw; margin-left: 35.5vw;">
+					<text></text>
+				</div>
+
+				<div id="other_header_character_refresh">
+					<text>REFRESH</text>
+				</div>
+
+				<div id = "other_header_character_achievements_title" style = "margin-left: 65vw;">
+					<text></text>
+				</div>
+
+				<div id="otherPlayerAchievements" style = "width: 30vw; margin-left: 65vw;">
+
+				</div>
+					
 
 			</form>
 
