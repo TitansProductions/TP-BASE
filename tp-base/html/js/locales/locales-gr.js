@@ -20,7 +20,7 @@ Locales.profileBlackMoney = "ΜΑΥΡΑ ΧΡΗΜΑΤΑ";
 
 Locales.profileChangeUrl = "Αλλαγή Avatar Url";
 Locales.profileRefresh   = "Ανανέωση";
-Locales.profileAchievements = "Επιτεύγματα:"
+Locales.profileAchievements = "Επιτεύγματα:";
 
 // Scoreboard Locales.
 Locales.scoreboardOnlinePlayers = "Συνδεδεμένοι Παίκτες: ";
