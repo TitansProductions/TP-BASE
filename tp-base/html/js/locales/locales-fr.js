@@ -19,6 +19,8 @@ Locales.profileBankAccount = "COMPTE EN BANQUE";
 Locales.profileBlackMoney = "ARGENT NOIR";
 
 Locales.profileChangeUrl = "Modifier l'URL de l'avatar";
+Locales.profileRefresh   = "Rafraîchir";
+Locales.profileAchievements = "Réalisations:"
 
 // Scoreboard Locales.
 Locales.scoreboardOnlinePlayers = "Joueurs en ligne: ";

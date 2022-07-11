@@ -19,6 +19,8 @@ Locales.profileBankAccount = "ΤΡΑΠΕΖΙΚΟΣ ΛΟΓ.";
 Locales.profileBlackMoney = "ΜΑΥΡΑ ΧΡΗΜΑΤΑ";
 
 Locales.profileChangeUrl = "Αλλαγή Avatar Url";
+Locales.profileRefresh   = "Ανανέωση";
+Locales.profileAchievements = "Επιτεύγματα:"
 
 // Scoreboard Locales.
 Locales.scoreboardOnlinePlayers = "Συνδεδεμένοι Παίκτες: ";

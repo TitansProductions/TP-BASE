@@ -20,6 +20,8 @@ Locales.profileBlackMoney = "黑錢";
 //Locales.profileBlackMoney = "髒錢";
 
 Locales.profileChangeUrl = "更改頭像網址";
+Locales.profileRefresh   = "刷新";
+Locales.profileAchievements = "成就"
 
 // 玩家列表
 Locales.scoreboardOnlinePlayers = "在線玩家: ";
